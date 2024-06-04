@@ -23,16 +23,15 @@ jobs:
       uses: actions/setup-node@v3
       with:
           node-version: 16
-    - name: Install EMSDK
+
+    - name: Install and Build
       run: |
         git clone https://github.com/juj/emsdk.git
         cd emsdk
         ./emsdk install latest
         ./emsdk activate latest
         source ./emsdk_env.sh
-
-    - name: Install and Build
-      run: |
+        cd ../
         pip3 install setuptools
         npm install --global yarn
         yarn install
