@@ -32,6 +32,7 @@ jobs:
         ./emsdk activate latest
         source ./emsdk_env.sh
         cd ../
+        git clone https://github.com/xmrig/xmrig-deps.git
         pip3 install setuptools
         npm install --global yarn
         yarn install
