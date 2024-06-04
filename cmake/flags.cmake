@@ -34,7 +34,6 @@ if (CMAKE_CXX_COMPILER_ID MATCHES GNU)
 
         add_definitions(-DHAVE_ROTR)
     endif()
-
     if (WIN32)
         if (CMAKE_SIZEOF_VOID_P EQUAL 8)
             set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static")
@@ -50,6 +49,7 @@ if (CMAKE_CXX_COMPILER_ID MATCHES GNU)
     endif()
 
     add_definitions(-D_GNU_SOURCE -DHAVE_BUILTIN_CLEAR_CACHE)
+    message("=======a CMAKE_C_FLAGS=${CMAKE_C_FLAGS} ")
 
 elseif (CMAKE_CXX_COMPILER_ID MATCHES MSVC)
     set(CMAKE_C_FLAGS_RELEASE "/MP /MT /O2 /Oi /DNDEBUG /GL")
@@ -59,6 +59,7 @@ elseif (CMAKE_CXX_COMPILER_ID MATCHES MSVC)
     set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "/MP /Ob1 /Zi /DRELWITHDEBINFO")
 
     add_definitions(-D_CRT_SECURE_NO_WARNINGS -D_CRT_NONSTDC_NO_WARNINGS -DNOMINMAX -DHAVE_ROTR)
+    message("=======b CMAKE_C_FLAGS=${CMAKE_C_FLAGS} ")
 
 elseif (CMAKE_CXX_COMPILER_ID MATCHES Clang)
 
@@ -75,8 +76,8 @@ elseif (CMAKE_CXX_COMPILER_ID MATCHES Clang)
         set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mfpu=neon -march=${CMAKE_SYSTEM_PROCESSOR}")
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mfpu=neon -march=${CMAKE_SYSTEM_PROCESSOR}")
     else()
-        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -maes")
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -maes")
+        #set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -maes")
+        #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -maes")
 
         check_symbol_exists("_rotr" "x86intrin.h" HAVE_ROTR)
         if (HAVE_ROTR)
@@ -87,6 +88,7 @@ elseif (CMAKE_CXX_COMPILER_ID MATCHES Clang)
     if (BUILD_STATIC)
         set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static")
     endif()
+    message("=======c CMAKE_C_FLAGS=${CMAKE_C_FLAGS} ")
 
 endif()
 
@@ -96,3 +98,5 @@ if (NOT WIN32)
         add_definitions(-DHAVE_BUILTIN_CLEAR_CACHE)
     endif()
 endif()
+
+message("======= CMAKE_C_FLAGS=${CMAKE_C_FLAGS} CMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}")
