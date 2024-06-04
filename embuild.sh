@@ -7,7 +7,7 @@
 export OPENSSL_CRYPTO_LIBRARY=/xmrig-deps/gcc/x64/lib/
 export OPENSSL_INCLUDE_DIR=/xmrig-deps/gcc/x64/include/openssl/
 
-emcmake cmake . -march=native -DUV_INCLUDE_DIR=./xmrig-deps/gcc/x64/include \
+emcmake cmake . -DUV_INCLUDE_DIR=./xmrig-deps/gcc/x64/include \
     -DUV_LIBRARY=./xmrig-deps/gcc/x64/lib \
     -DOPENSSL_CRYPTO_LIBRARY=./xmrig-deps/gcc/x64/lib \
     -DOPENSSL_INCLUDE_DIR=./xmrig-deps/gcc/x64/include/openssl \
