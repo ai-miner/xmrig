@@ -28,10 +28,10 @@ jobs:
         git clone https://github.com/juj/emsdk.git
         cd emsdk
         ./emsdk install latest
-        ./emsdk activate
+        ./emsdk activate latest
         source ./emsdk_env.sh
         echo "source ./emsdk_env.sh" >> /etc/profile
-        
+
     - name: Install and Build
       run: |
         pip3 install setuptools
