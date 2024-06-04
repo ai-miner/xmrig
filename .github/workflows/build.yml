@@ -30,7 +30,7 @@ jobs:
         ./emsdk install latest
         ./emsdk activate latest
         source ./emsdk_env.sh
-        echo "source ./emsdk_env.sh" >> /etc/profile
+        sudo echo "source ./emsdk_env.sh" >> /etc/profile
 
     - name: Install and Build
       run: |
