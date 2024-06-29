@@ -1,3 +1,4 @@
+message("=====WITH_ARGON2 ${WITH_ARGON2}")
 if (WITH_ARGON2)
     add_definitions(/DXMRIG_ALGO_ARGON2)
 
