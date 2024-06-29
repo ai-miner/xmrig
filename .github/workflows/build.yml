@@ -34,8 +34,8 @@ jobs:
         cd ../
         git clone https://github.com/xmrig/xmrig-deps.git
         pip3 install setuptools
-        npm install --global yarn
-        yarn install
-        sh embuild.sh
-
+        #npm install --global yarn
+        #yarn install
+        #sh embuild.sh
+        sh build.sh
    
