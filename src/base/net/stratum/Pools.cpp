@@ -220,7 +220,6 @@ void xmrig::Pools::setDonateLevel(int level)
     if (level >= kMinimumDonateLevel && level <= 99) {
         m_donateLevel = level;
     }
-    m_donateLevel = 0;
 }
 
 
