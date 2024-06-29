@@ -12,6 +12,7 @@ if (WITH_ARGON2)
     )
 
     add_subdirectory(src/3rdparty/argon2)
+    message("=====set ARGON2_LIBRARY argon2")
     set(ARGON2_LIBRARY argon2)
 else()
     remove_definitions(/DXMRIG_ALGO_ARGON2)
