@@ -3,7 +3,7 @@ name: Node.js CI
 on:
   push:
     branches:
-      - dev-web
+      - dev-web--
   pull_request:
   workflow_dispatch:
 
